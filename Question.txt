@@ -1,0 +1,4 @@
+Give one reason (there are many) OAuth tokens should not be granted in the main flow,
+assuming the user has sent in the correct credentials.
+
+I believe having the access token being granted in the main flow would allow anybody that grabs the URL with the token will increase a security issue since it can be stolen easier. 
