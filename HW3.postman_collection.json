@@ -1,0 +1,226 @@
+{
+	"variables": [],
+	"info": {
+		"name": "HW3",
+		"_postman_id": "ee59ed46-82e6-0093-1bae-3f67972bc26c",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "https://coronach-test.apigee.net/oauth/client_credential/accesstoken?grant_type=client_credentials",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"var json=JSON.parse(responseBody);",
+							"",
+							"postman.setEnvironmentVariable(\"access_token\", \"z2rC3bkA17hfBQamf7EfcGklNEYt\");"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "https://coronach-test.apigee.net/oauth/client_credential/accesstoken?grant_type=client_credentials",
+				"method": "POST",
+				"header": [
+					{
+						"key": "//Content-Type",
+						"value": "",
+						"description": "",
+						"disabled": true
+					},
+					{
+						"key": "//client_secret",
+						"value": "",
+						"description": "",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "client_id",
+							"value": "useb3WU2jfraArJ1m7mVjKYAGQkJgWpb",
+							"type": "text",
+							"enabled": true
+						},
+						{
+							"key": "client_secret",
+							"value": "vWUrjXADAN3N9QsM",
+							"type": "text",
+							"enabled": true
+						}
+					]
+				},
+				"description": "Getting the access_token"
+			},
+			"response": [
+				{
+					"id": "366fa6c8-12e6-4f15-8dc8-2f8c28f3c75f",
+					"name": "with invalid client secret",
+					"originalRequest": {
+						"url": "https://coronach-test.apigee.net/oauth/client_credential/accesstoken?grant_type=client_credentials",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "",
+								"enabled": false,
+								"description": "The mime type of this content",
+								"disabled": true
+							},
+							{
+								"key": "client_secret",
+								"value": "",
+								"enabled": false,
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "client_id",
+									"value": "useb3WU2jfraArJ1m7mVjKYAGQkJgWpb",
+									"type": "text",
+									"enabled": true
+								},
+								{
+									"key": "client_secret",
+									"value": "vWhskjdfhksdjfhkdjhfkjhdkj",
+									"type": "text",
+									"enabled": true
+								}
+							]
+						}
+					},
+					"status": "Unauthorized",
+					"code": 401,
+					"_postman_previewlanguage": "plain",
+					"_postman_previewtype": "text",
+					"header": [
+						{
+							"key": "Connection",
+							"value": "keep-alive",
+							"name": "Connection",
+							"description": "Options that are desired for the connection"
+						},
+						{
+							"key": "Content-Length",
+							"value": "75",
+							"name": "Content-Length",
+							"description": "The length of the response body in octets (8-bit bytes)"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 12 Mar 2017 03:41:07 GMT",
+							"name": "Date",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"key": "Server",
+							"value": "Apigee Router",
+							"name": "Server",
+							"description": "A name for the server"
+						}
+					],
+					"cookie": [],
+					"responseTime": 188,
+					"body": "{\"ErrorCode\" : \"invalid_client\", \"Error\" :\"Client credentials are invalid\"}"
+				}
+			]
+		},
+		{
+			"name": "https://coronach-test.apigee.net/oauth/client_credential/accesstoken?grant_type=client_credentials",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"var json=JSON.parse(responseBody);",
+							"",
+							"postman.setEnvironmentVariable(\"access_token\", \"z2rC3bkA17hfBQamf7EfcGklNEYt\");"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "https://coronach-test.apigee.net/oauth/client_credential/accesstoken?grant_type=client_credentials",
+				"method": "POST",
+				"header": [
+					{
+						"key": "//Content-Type",
+						"value": "",
+						"description": "",
+						"disabled": true
+					},
+					{
+						"key": "//client_secret",
+						"value": "",
+						"description": "",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "client_id",
+							"value": "useb3WU2jfraArJ1m7mVjKYAGQkJgWpb",
+							"type": "text",
+							"enabled": true
+						},
+						{
+							"key": "client_secret",
+							"value": "vWhskjdfhksdjfhkdjhfkjhdkj",
+							"type": "text",
+							"enabled": true
+						}
+					]
+				},
+				"description": "using the wrong client secret"
+			},
+			"response": []
+		},
+		{
+			"name": "http://coronach-test.apigee.net/gitHubAccess3/githubInfo",
+			"request": {
+				"url": "http://coronach-test.apigee.net/gitHubAccess3/githubInfo",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{access_token}}",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": "{{access_token}} on Homework 3 with the Oauth with the correct access token"
+			},
+			"response": []
+		},
+		{
+			"name": "http://coronach-test.apigee.net/gitHubAccess3/githubInfo",
+			"request": {
+				"url": "http://coronach-test.apigee.net/gitHubAccess3/githubInfo",
+				"method": "GET",
+				"header": [
+					{
+						"key": "//Authorization",
+						"value": "Bearer {{access_token}}",
+						"description": "",
+						"disabled": true
+					}
+				],
+				"body": {},
+				"description": "needing Oauth to see the information, also changed the error message"
+			},
+			"response": []
+		}
+	]
+}
